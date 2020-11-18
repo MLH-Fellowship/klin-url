@@ -18,7 +18,7 @@ npm install
 ```
 - To test if it works, visit ```chrome://extensions``` in your browser and ensure that the Developer mode checkbox in the top right-hand corner is checked.
 
-- Click Load unpacked extension and select the directory in which your extension files live(basically, this project's folder). If the extension is valid, it will be active straight away so you can open a new tab to see your ‘Hello world’.
+- Click Load unpacked extension and select the directory in which your extension files live(basically, this project's folder). If the extension is valid, it will be active straight away so you can click on the extension's icon in your browser's address bar; this action should trigger a display of a pop up icon.
 
 
 ## Contributing

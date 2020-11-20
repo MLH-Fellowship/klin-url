@@ -1,6 +1,14 @@
-/* just trying to make the id as unique as I can */
-#popup-mlh{
-    width: 30rem;
-    height: 20rem;
-    padding: 1rem;
+/* just trying to make the id as unique as I can 
+if we don't make things unique, then our css could 
+mistakenly style unwanted elements*/
+
+#klinurl-body{
+    height:20rem;
+    min-width:30rem;
+    font-family: 'Roboto Slab', serif;
 }
+
+input{
+    width: 100%;
+}
+

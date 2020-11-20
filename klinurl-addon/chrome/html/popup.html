@@ -1,17 +1,60 @@
 <!doctype html>
 
-<html>  
-    <head>   
+<html>
+    <head>
+        <link 
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"
+        >
+
+        <link 
+            href="https://fonts.googleapis.com/css?family=Roboto+Slab" 
+            rel="stylesheet"
+        >
+
+        <link 
+            rel="stylesheet" 
+            href="../css/background.css"
+        >
+
         <script src="../js/code/background.js"></script> 
-        <link rel="stylesheet" href="../css/background.css">
 
-        <title>url shortener</title>  
-    </head>  
-    
-    <body id="popup-mlh">    
-        <h2>This is our awesome chrome url shortener</h2>
+        <title>KlinUrl</title> 
+    </head>
 
-        <input type="text" name="" id="long-url">
-        <button type="submit" id="form-submit">shorten</button>
+    <body id="klinurl-body">
+        <div class="row p-3 text-center">
+            <div class="col-12">
+                <div>
+                    <h1>KlinUrl</h1>
+                    <h5>Create Clean and short Urls With no Hassle</h5>
+                </div>
+
+                <div class="mt-5 text-left">
+                    <label 
+                        for="klinurl-input"
+                        class="text-muted">
+                        Your tab's url has been automatically copied
+                    </label>
+                    <input 
+                        type="text" 
+                        name="klinurl-input"
+                        placeholder="paste longurl" 
+                        id="longurl" 
+                    />
+
+                    <div>
+                    
+                        <button
+                            class="btn btn-sm btn-primary mt-3"
+                            type="submit"
+                            id="klinurl-button"
+                        >
+                            shorten url
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

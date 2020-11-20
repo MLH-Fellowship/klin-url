@@ -1,7 +1,7 @@
 //this function adds the browser's current tab url to the 
 //form's input field
 const getCurrentTabUrl = (url) => { 
-    document.getElementById("long-url").value = url;
+    document.getElementById("longurl").value = url;
 };
 
 
@@ -15,7 +15,7 @@ const urlShortener = (url) => {
 //this function grabs the content of the addon's input field
 //it then passes this content to the urlShortener function
 const getInputFieldCOntent = () => { 
-    let longUrl = document.getElementById("long-url").value;
+    let longUrl = document.getElementById("longurl").value;
     urlShortener(longUrl)
 };
 
@@ -28,7 +28,7 @@ chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
 
 //this listens for the click event on the popup's form submit button
 document.addEventListener("DOMContentLoaded", () => {
-    var button = document.getElementById("form-submit")
+    var button = document.getElementById("klinurl-button")
 
     button.addEventListener("click", (e) => {
         getInputFieldCOntent()

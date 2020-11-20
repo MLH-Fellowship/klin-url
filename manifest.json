@@ -17,5 +17,8 @@
                         "default_title": "shorten your urls",
                         "default_popup": "chrome/html/popup.html"
                     }, 
-    "permissions": ["activeTab"]
+    "permissions": ["activeTab"],
+    "content_security_policy": "script-src 'self' https://example.com; object-src 'self'"
+
+
 }

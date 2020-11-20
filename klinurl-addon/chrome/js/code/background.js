@@ -1,17 +1,22 @@
-//this function adds the browser's current tab url to the form's input field
+//this function adds the browser's current tab url to the 
+//form's input field
 const getCurrentTabUrl = (url) => { 
     document.getElementById("long-url").value = url;
 };
 
 
+//this function takes a long url and return its shortened
+//version. It makes an api call to our backend
 const urlShortener = (url) => { 
-    document.getElementById("long-url").value = url;
+    alert(url);
 };
 
 
+//this function grabs the content of the addon's input field
+//it then passes this content to the urlShortener function
 const getInputFieldCOntent = () => { 
     let longUrl = document.getElementById("long-url").value;
-    alert(longUrl)
+    urlShortener(longUrl)
 };
 
 

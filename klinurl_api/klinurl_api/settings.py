@@ -61,7 +61,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'klinurl_api.urls'
+ROOT_URLCONF = 'klinurl_api.root_url.urls'
 
 TEMPLATES = [
     {

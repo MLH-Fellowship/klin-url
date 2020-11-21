@@ -25,8 +25,8 @@ schema_view = get_swagger_view(title="KlinUrl API DOCS")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include('url_shortener.api.urls')),
     path('docs', schema_view),
-
     path('', schema_view)
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

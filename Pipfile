@@ -7,6 +7,14 @@ verify_ssl = true
 
 [packages]
 django = "==2.2"
+djangorestframework = "*"
+django-cors-headers = "*"
+django-rest-swagger = "*"
+dj-database-url = "*"
+whitenoise = "*"
+django-environ = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"

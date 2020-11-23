@@ -1,6 +1,6 @@
 
 async function postData(data) {
-    const url = "klinurl.me/api/v1/shorten"
+    const url = "http://localhost:8000/api/v1/shorten"
 
     const response = await fetch(
         url, 
@@ -23,14 +23,15 @@ const urlShortener = (url) => {
         .then(data => {
             originalUrl = encodeURI(data.data.longUrl)
             newUrl = encodeURI(data.data.klinUrl)
+            scheme = encodeURI(data.data.scheme)
+            newurlHref = scheme.concat(newUrl);
 
-            document.getElementById("shortened-url").href = newUrl
+            document.getElementById("shortened-url").href = newurlHref
             document.getElementById("original-url").href = originalUrl
 
             document.getElementById("shortened-url").innerHTML = newUrl
             document.getElementById("original-url").innerHTML = originalUrl
-        }
-    );
+        });
 };
 
 

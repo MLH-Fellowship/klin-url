@@ -33,6 +33,7 @@ class UrlShortenerAPIView(APIView):
         """
         serializer = self.serializer_class(data=request.data)
         base_url = f"{ request.get_host() }/"
+        scheme = f"{ request.scheme }://"
 
         if serializer.is_valid():
            
@@ -45,7 +46,8 @@ class UrlShortenerAPIView(APIView):
                                 'success': True,
                                 'data' : {
                                             "longUrl": serializer.data["long_url"],
-                                            "klinUrl": base_url + serializer.data["klin_url"]
+                                            "klinUrl": base_url + serializer.data["klin_url"],
+                                            "scheme": scheme
                                          },
                                 'message': "Your url has been successfully shortened"
 

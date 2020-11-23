@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
 	'corsheaders',
+
+    #developer apps
+    'url_shortener'
 ]
 
 MIDDLEWARE = [

@@ -85,6 +85,8 @@ TEMPLATES = [
 REST_FRAMEWORK = {
 
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+     'DEFAULT_AUTHENTICATION_CLASSES': [
+    ]
 }
 
 WSGI_APPLICATION = 'klinurl_api.wsgi.application'

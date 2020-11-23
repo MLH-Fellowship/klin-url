@@ -32,15 +32,11 @@ class UrlShortenerAPIView(APIView):
             it's Python baby :)
         """
         serializer = self.serializer_class(data=request.data)
-        base_url = f"{ request.scheme }://{ request.get_host }"
+        base_url = f"{ request.get_host() }/"
 
         if serializer.is_valid():
-            klin_url = ""
-
-            if request.data["klin_url"]:
-                klin_url = request.data["klin_url"]
-            else:
-                klin_url = create_shortened_url()
+           
+            klin_url = create_shortened_url()
 
             serializer.save(klin_url = klin_url)
 
@@ -67,7 +63,7 @@ class UrlShortenerAPIView(APIView):
 
 def redirect_view(request, klin_url):
     """
-    Redirect to a given object from a short URL.
+    Redirect to a given object from a given a short url.
     """
     model = Url
     obj = get_object_or_404(model, klin_url=klin_url)

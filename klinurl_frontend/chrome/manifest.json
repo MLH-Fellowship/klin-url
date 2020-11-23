@@ -6,17 +6,25 @@
     "author": "Kyle Pulido, Harriet Akot, Nyior Clement", 
 
     "permissions": [
-                        "activeTab", 
+                        "<all_urls>",
+                        "tabs", 
                         "clipboardWrite", 
                         "clipboardRead", 
                         "storage"
                     ],
+
+        "background": [
+                        {
+                            "scripts": ["js/code/background.js"],
+                            "persistent": false
+                        }
+                    ],    
     
     "content_scripts": [
                             {
                                 "matches": ["<all_urls>"],
-                                "css": ["css/background.css"],
-                                "js": ["js/code/background.js"]
+                                "css": ["css/content.css"],
+                                "js": ["js/code/content.js"]
                             }
                         ],
 

@@ -1,3 +1,5 @@
+from django.shortcuts import get_object_or_404, redirect
+
 from rest_framework import  generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -30,15 +32,25 @@ class UrlShortenerAPIView(APIView):
             it's Python baby :)
         """
         serializer = self.serializer_class(data=request.data)
-        klin_url = create_shortened_url()
+        base_url = f"{ request.scheme }://{ request.get_host }"
 
         if serializer.is_valid():
+            klin_url = ""
+
+            if request.data["klin_url"]:
+                klin_url = request.data["klin_url"]
+            else:
+                klin_url = create_shortened_url()
+
             serializer.save(klin_url = klin_url)
 
             return Response(
                             {
                                 'success': True,
-                                'data' : serializer.data,
+                                'data' : {
+                                            "longUrl": serializer.data["long_url"],
+                                            "klinUrl": base_url + serializer.data["klin_url"]
+                                         },
                                 'message': "Your url has been successfully shortened"
 
                             }
@@ -47,10 +59,16 @@ class UrlShortenerAPIView(APIView):
         return Response(
                         {
                             'success': False,
-                            'data' : serializer.data,
                             'message': "Something is wrong with your request"
 
                         }
                         )
 
 
+def redirect_view(request, klin_url):
+    """
+    Redirect to a given object from a short URL.
+    """
+    model = Url
+    obj = get_object_or_404(model, klin_url=klin_url)
+    return redirect(obj)

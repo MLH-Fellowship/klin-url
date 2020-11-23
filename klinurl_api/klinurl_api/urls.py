@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/', include('url_shortener.api.urls')),
+    path('', include('url_shortener.api.urls')),
     path('docs', schema_view),
     path('', schema_view)
 

@@ -6,3 +6,6 @@ class Url(models.Model):
     
     def __str__(self):
         return self.klin_url
+    
+    def get_absolute_url(self):
+        return self.long_url

@@ -1,65 +1,39 @@
 from django.test import TestCase
-from apps.posts.models import Post, Community
-from apps.users.models import CustomUser, Badge
 
-# Create your tests here.
+from url_shortener.models import Url
+from url_shortener.api.utils import create_shortened_url
 
-#this class tests the custom-user model
+
 class PostModelTest(TestCase):
+    """ This tests the Url model """
 
-	""" This test the post model """
+    @classmethod
+    def setUpTestData(cls):
+        klin_url = create_shortened_url()
+                        
+        #creating a url object
+        Url.objects.create(
+                            klin_url = klin_url, 
+                            long_url = '''
+                                        https://medium.com/@shalandy/                 deploy-git-subdirectory-to-heroku-ea05e95fce1f
+                                        '''
+                            )
 
-	@classmethod
-	def setUpTestData(cls): 
-		
-		#creating a badge object
-		Badge.objects.create(name="Rookie")
-
-		#creating a user object
-		user = CustomUser.objects.create(email = "cnyior27@aun.edu.ng", username = "Clement_Nyior", bio = "Things dey occur")
-
-		#creating a community object
-		circle = Community.objects.create(name="Rookie", super_moderator=user)
-
-		#creating a post object
-		Post.objects.create(slug = "slug-1", caption = "Testing durrh", author = user, community=circle)
-        
 	
-	def test_slug(self):
-		""" tests slug field of the Post model""" 
+    def test_klin_url(self):
+        """ tests klin_url field of the Url model""" 
 
-		post = Post.objects.get(id=1)
-		label = post._meta.get_field('slug').verbose_name
-		size = post._meta.get_field('slug').max_length
-		self.assertEquals(label, 'slug')
-		self.assertEquals(size, 255)
+        url = Url.objects.get(id=1)
+        label = url._meta.get_field('klin_url').verbose_name
+        size = url._meta.get_field('klin_url').max_length
+        self.assertEquals(label, 'klin url')
+        self.assertEquals(size, 30)
 			
 
-	def test_caption(self):
-		""" tests caption field of the Post Model"""
+    def test_long_url(self):
+        """ tests long_url field of the Url model""" 
 
-		post = Post.objects.get(id=1)
-		label = post._meta.get_field('caption').verbose_name
-		size = post._meta.get_field('caption').max_length
-		self.assertEquals(label, 'caption')
-		self.assertEquals(size, 500)
-
-	def test_author(self):
-		""" tests author field of the post model"""
-
-		post = Post.objects.get(id=1)
-		label = post._meta.get_field('author').verbose_name
-		self.assertEquals(label, 'author')
-
-	def test_community(self):
-		""" tests community field of the post model"""
-
-		post = Post.objects.get(id=1)
-		label = post._meta.get_field('community').verbose_name
-		self.assertEquals(label, 'community')
-
-
-
-        
-
+        url = Url.objects.get(id=1)
+        label = url._meta.get_field('long_url').verbose_name
+        self.assertEquals(label, 'long url')
     

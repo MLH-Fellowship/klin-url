@@ -11,6 +11,8 @@ body{
     font-family: 'Arial', serif;
     text-align: center;
     background: linear-gradient(to bottom, #ccffcc 0%, #66ffff 100%);
+    background: url("../icons/back.jpg");
+
 }
 #klinbody{
     background-color: cornsilk;
@@ -31,7 +33,7 @@ input[type=text] {
   }
 
   button{
-    background-color: #4e4caf;
+    background-color: #149dc7;
     border: none;
     color: white;
     padding: 3%;

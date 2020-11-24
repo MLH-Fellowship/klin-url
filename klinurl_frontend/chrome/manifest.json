@@ -26,6 +26,6 @@
                         "default_popup": "html/popup.html"
                     },
     "web_accessible_resources": [
-                        "icons/logo.png"
+                        "icons/back.jpg"
                       ]
 }

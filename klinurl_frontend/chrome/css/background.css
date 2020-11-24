@@ -2,13 +2,41 @@
 if we don't make things unique, then our css could 
 mistakenly style unwanted elements*/
 
-#klinurl-body{
-    height:20rem;
-    min-width:30rem;
-    font-family: 'Roboto Slab', serif;
+body{
+    height:30em;
+    width:26em;
+    padding-left: 2em;
+    padding-right: 5em;
+    padding-top: 5%;
+    font-family: 'Arial', serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #ccffcc 0%, #66ffff 100%);
+}
+#klinbody{
+    background-color: cornsilk;
+    width: 95%;
+    height: 100%;
+    margin-left: 8%;
+    margin-top: 5%;
+    margin-right: 55%;
+    margin-bottom: 25%;
+    padding-top: 5%;
+
 }
 
-input{
-    width: 100%;
-}
+input[type=text] {
+    background-color: white;
+    width: 90%;
+    border-radius: 5px;
+  }
+
+  button{
+    background-color: #4e4caf;
+    border: none;
+    color: white;
+    padding: 3%;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5%;
+  }
 

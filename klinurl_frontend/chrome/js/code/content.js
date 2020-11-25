@@ -1,6 +1,6 @@
 
 async function postData(data) {
-    const url = "http://localhost:8000/api/v1/shorten"
+    const url = "http://klinurl.me/api/v1/shorten"
 
     const response = await fetch(
         url, 

@@ -8,8 +8,8 @@
         >
 
         <link 
-            href="https://fonts.googleapis.com/css?family=Roboto+Slab" 
-            rel="stylesheet"
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         >
 
         <link 
@@ -17,6 +17,7 @@
             href="../css/content.css"
         >
 
+        <script src="dist/clipboard.min.js"></script>
         <script src="../js/code/content.js"></script> 
         <script src="../js/code/background.js"></script> 
 
@@ -25,11 +26,16 @@
 
     <body id="klinurl-body">
     <div class="container-fluid">
-        <div class="row p-3 text-center">
+        <div class="row text-left">
             <div class="col-12">
                 <div>
-                    <h1>KlinUrl</h1>
-                    <h5>Create Clean and short Urls With no Hassle</h5>
+                    <h1 id="klinurl-h1">KlinUrl</h1>
+                    <h5 
+                        id="klinurl-h5"
+                        class="text-muted"
+                    >
+                        Create Clean and short Urls
+                    </h5>
                 </div>
 
                 <div class="mt-5 text-left">
@@ -45,10 +51,17 @@
                         id="longurl" 
                     />
 
+                    <div 
+                        id="error-section"
+                        class="text-center text-white"
+                    >
+
+                    </div>
+
                     <div>
                     
                         <button
-                            class="btn btn-sm btn-primary mt-3"
+                            class="btn mt-3"
                             type="submit"
                             id="klinurl-button"
                         >
@@ -59,22 +72,33 @@
             </div>
         </div>
 
-        <div class="row p-3 text-left">
+        <div class="row mt-5 text-left">
             <div class="col-12">
-                <h5>Shortened Url: </h5>
+                <p class="p-0 m-0">Shortened Url</p>
                 <a 
                     href="" 
-                   
                     id="shortened-url"
+                    class="text-muted"
                 >
-            </a>
+                </a>
+                <i
+                    class="btn fa fa-clone"
+                    aria-hidden="true"
+                    id="klinurl-copy"
+                >
+                    <span 
+                        id="tooltiptext"
+                    >
+                        
+                    </span>
+                </i>
             </div>
             <div class="col-12">
-                <h5>original Url: </h5>
+                <p class="p-0 m-0">original Url</p>
                 <a 
-                    href="" 
-                    
+                    href=""    
                     id="original-url"
+                    class="text-muted"
                 >
                 </a>
             </div>

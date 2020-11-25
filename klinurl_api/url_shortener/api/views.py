@@ -34,33 +34,45 @@ class UrlShortenerAPIView(APIView):
         serializer = self.serializer_class(data=request.data)
         base_url = f"{ request.get_host() }/"
         scheme = f"{ request.scheme }://"
-
+       
         if serializer.is_valid():
-           
-            klin_url = create_shortened_url()
+            long_url = request.data["long_url"]
 
-            serializer.save(klin_url = klin_url)
+            if Url.objects.filter(long_url=long_url).exists():
+                url = Url.objects.get(long_url=long_url)
 
-            return Response(
-                            {
-                                'success': True,
-                                'data' : {
-                                            "longUrl": serializer.data["long_url"],
-                                            "klinUrl": base_url + serializer.data["klin_url"],
-                                            "scheme": scheme
-                                         },
-                                'message': "Your url has been successfully shortened"
+                return Response(
+                                    {
+                                        'success': True,
+                                        'data' : {
+                                                    "longUrl": long_url,
+                                                    "klinUrl": base_url + url.klin_url,
+                                                    "scheme": scheme,
+                                                    "isDuplicate":True
+                                                },
+                                        'message': "Your url is a duplicate"
 
-                            }
-                            )
+                                    }
+                                    )
+            else:
+            
+                klin_url = create_shortened_url()
 
-        return Response(
-                        {
-                            'success': False,
-                            'message': "Something is wrong with your request"
+                serializer.save(klin_url = klin_url)
 
-                        }
-                        )
+                return Response(
+                                {
+                                    'success': True,
+                                    'data' : {
+                                                "longUrl": long_url,
+                                                "klinUrl": base_url + serializer.data["klin_url"],
+                                                "scheme": scheme,
+                                                "isDuplicate":False
+                                            },
+                                    'message': "Your url has been successfully shortened"
+
+                                }
+                                )
 
 
 def redirect_view(request, klin_url):

@@ -1,14 +1,88 @@
-/* just trying to make the id as unique as I can 
-if we don't make things unique, then our css could 
-mistakenly style unwanted elements*/
+@import url('https://fonts.googleapis.com/css2?family=Glegoo&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
-#klinurl-body{
-    height:20rem;
-    min-width:30rem;
-    font-family: 'Roboto Slab', serif;
+html,
+body {
+	font-size: 62.5%;
+	margin: 0px;
+    padding: 0px;
 }
 
-input{
+#tooltiptext {  
+   color: #219653; 
+} 
+
+#klinurl-body{
+    height:40rem;
+    min-width:50rem;
+    font-size: 1.6rem;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 1px;
+    padding: 3rem;
+}
+
+#klinurl-button{
+	width: 15rem;
+	height: 4rem;
+	letter-spacing: 1px;
+	background-color: #219653;
+	color: white !important;
+	font-weight: bold;
+	font-size: 1.4rem;
+	text-align: center;
+}
+
+#klinurl-copy{
+	font-size: 1.6rem;	
+    color: #219653;
+    visibility: hidden;
+}
+
+#longurl{
     width: 100%;
+}
+
+#klinurl-h1{
+	font-size: 2.5rem;	
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #219653;
+    font-family: 'Paytone One', sans-serif;
+}
+
+#klinurl-h5{
+	font-size: 1.8rem;	
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.klinur-animate {
+    -moz-animation: cssAnimation 0s ease-in 7s forwards;
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background-color: #EB5757;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
 }
 

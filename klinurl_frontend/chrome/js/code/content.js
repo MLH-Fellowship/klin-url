@@ -24,7 +24,6 @@ const copyKlinLink = () => {
       navigator.clipboard.writeText(elementText);
 
       let elem = document.getElementById("tooltiptext");
-      elem.classList.add("klinur-animate");
       elem.innerHTML = "copied!"
     } catch (err) {
       alert("Oops, unable to copy");

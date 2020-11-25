@@ -8,7 +8,7 @@ html{
 }
 
 #tooltiptext {  
-   color: #ce8b57; 
+   color: #1ca9c9; 
 } 
 
 #klinurl-body{
@@ -26,7 +26,7 @@ html{
 	width: 15rem;
 	height: 4rem;
 	letter-spacing: 1px;
-    background-color: #ff3855;
+    background-color: #1ca9c9;
     color: white !important;
 	font-weight: bold;
 	font-size: 1.6rem;
@@ -35,7 +35,7 @@ html{
 
 #klinurl-table-header{
     letter-spacing: 1px;
-    background-color: #ff3855;
+    background-color: #1ca9c9;
     color: white !important;
 	font-weight: bold;
 	font-size: 1.6rem;
@@ -43,20 +43,20 @@ html{
 
 #klinurl-copy{
 	font-size: 1.6rem;	
-    color: #ff3855;
+    color: #1ca9c9;
     visibility: hidden;
 }
 
 #longurl{
     width: 100%;
-    border: 0.1rem solid #ff3855;
+    border: 0.1rem solid #1ca9c9;
 }
 
 #klinurl-h1{
 	font-size: 2.5rem;	
     letter-spacing: 2px;
     font-weight: bold;
-    color: #ff3855;
+    color: #1ca9c9;
     font-family: 'Paytone One', sans-serif;
 }
 
@@ -79,7 +79,7 @@ html{
     animation-fill-mode: forwards;
     margin-top: 1rem;
     border-radius: 5rem;
-    background-color: #EB5757;
+    background-color: #ff3855;
     font-weight: bold;
     font-size: 1.4rem;
 }

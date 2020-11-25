@@ -45,6 +45,7 @@
                     </label>
                     <input 
                         type="text" 
+                        class="text-muted"
                         name="klinurl-input"
                         placeholder="paste longurl" 
                         id="longurl" 
@@ -71,9 +72,9 @@
             </div>
         </div>
 
-        <div class="row mt-5 text-left">
+        <div class="row mt-5 pt-5 text-left">
             <div class="col-12">
-                <table class="table table-bordered table-sm">
+                <table class="table table-sm">
                     <thead id="klinurl-table-header">
                         <tr class="text-center">
                             <th>shortened url</th>
@@ -83,28 +84,32 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a 
-                                    href="" 
-                                    id="shortened-url"
-                                    class="text-muted"
-                                >
-                                </a>
-                                <i
-                                    class="btn fa fa-clone"
-                                    aria-hidden="true"
-                                    id="klinurl-copy"
-                                >
-                                    <span id="tooltiptext">    
-                                    </span>
-                                </i>
+                                <small>
+                                    <a 
+                                        href="" 
+                                        id="shortened-url"
+                                        class="text-muted"
+                                    >
+                                    </a>
+                                    <i
+                                        class="btn fa fa-clone"
+                                        aria-hidden="true"
+                                        id="klinurl-copy"
+                                    >
+                                        <span id="tooltiptext">    
+                                        </span>
+                                    </i>
+                                </small>
                             </td>
                             <td>
-                                <a 
-                                    href=""    
-                                    id="original-url"
-                                    class="text-muted"
-                                >
-                                </a>
+                                <small>
+                                    <a 
+                                        href=""    
+                                        id="original-url"
+                                        class="text-muted"
+                                    >
+                                    </a>
+                                </small>
                             </td>
                         </tr>
                               

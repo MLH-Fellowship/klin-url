@@ -1,15 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Glegoo&family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
-html,
-body {
-	font-size: 62.5%;
+html{
+    font-size: 62.5%;
 	margin: 0px;
     padding: 0px;
 }
 
 #tooltiptext {  
-   color: #219653; 
+   color: #ce8b57; 
 } 
 
 #klinurl-body{
@@ -19,41 +18,54 @@ body {
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 1px;
     padding: 3rem;
+    background: linear-gradient(to bottom, #ccffcc 0%, #66ffff 100%);
+    background: url("../icons/back.jpg");
 }
 
 #klinurl-button{
 	width: 15rem;
 	height: 4rem;
 	letter-spacing: 1px;
-	background-color: #219653;
-	color: white !important;
+    background-color: #ff3855;
+    color: white !important;
 	font-weight: bold;
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 	text-align: center;
+}
+
+#klinurl-table-header{
+    letter-spacing: 1px;
+    background-color: #ff3855;
+    color: white !important;
+	font-weight: bold;
+	font-size: 1.6rem;
 }
 
 #klinurl-copy{
 	font-size: 1.6rem;	
-    color: #219653;
+    color: #ff3855;
     visibility: hidden;
 }
 
 #longurl{
     width: 100%;
+    border: 0.1rem solid #ff3855;
 }
 
 #klinurl-h1{
 	font-size: 2.5rem;	
     letter-spacing: 2px;
     font-weight: bold;
-    color: #219653;
+    color: #ff3855;
     font-family: 'Paytone One', sans-serif;
 }
+
 
 #klinurl-h5{
 	font-size: 1.8rem;	
     letter-spacing: 2px;
     font-weight: bold;
+    color: #ce8b57;
 }
 
 .klinur-animate {

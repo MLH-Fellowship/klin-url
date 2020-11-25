@@ -1,5 +1,5 @@
 <h1 align="center">
-	Google Chrome URL Shortener
+	KlinUrl: Google Chrome URL Shortener
 </h1>
 
 <p align="center">

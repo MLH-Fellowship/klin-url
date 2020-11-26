@@ -17,10 +17,8 @@
             href="../css/content.css"
         >
 
-        <script src="dist/clipboard.min.js"></script>
         <script src="../js/code/content.js"></script> 
         <script src="../js/code/background.js"></script> 
-
         <title>KlinUrl</title> 
     </head>
 
@@ -51,6 +49,12 @@
                         id="longurl" 
                     />
                     <div 
+                        id="invalidurl-section"
+                        class="text-center text-white"
+                    >
+
+                    </div>
+                    <div 
                         id="error-section"
                         class="text-center text-white"
                     >
@@ -76,13 +80,13 @@
             <div class="col-12">
                 <table class="table table-sm">
                     <thead id="klinurl-table-header">
-                        <tr class="text-center">
+                        <tr class="text-left p2">
                             <th>shortened url</th>
                             <th>original Url</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="p-2">
                             <td>
                                 <small>
                                     <a 

@@ -1,6 +1,6 @@
 { 
     "manifest_version": 2, 
-    "name": "Chrome Url Shortener", 
+    "name": "klinurl", 
     "description": "Shorten urls in wichever tab you are in.", 
     "version": "1", 
     "author": "Kyle Pulido, Harriet Akot, Nyior Clement", 

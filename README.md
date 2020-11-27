@@ -1,7 +1,7 @@
 <h1 align="center">
 	KlinUrl: Google Chrome URL Shortener
 </h1>
-![Screenshot](a.png)
+![Screenshot](https://github.com/MLH-Fellowship/klin-url/blob/main/a.PNG?raw=true)
 
 <p align="center">
 	<i>A google chrome addon for shortening urls in a more convenient way</i>

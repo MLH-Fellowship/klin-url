@@ -3,6 +3,7 @@ const getCurrentTabUrl = (url) => {
     document.getElementById("longurl").value = url;
 };
 
+
 chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
     getCurrentTabUrl(tabs[0].url);
 });
@@ -10,8 +11,8 @@ chrome.tabs.query({currentWindow: true, active: true}, function(tabs){
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    let klinurl = document.getElementById("shortened-url")
-    let longurl = document.getElementById("original-url")
+    let klinurl = document.getElementById("shortened-url");
+    let longurl = document.getElementById("original-url");
 
     klinurl.addEventListener("click", (e) => {
         chrome.tabs.create(
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 active: false 
                             }
                             );
-    })
+    });
 
     longurl.addEventListener("click", (e) => {
         chrome.tabs.create(
@@ -29,6 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 active: false
                             }
                             );
-    })
+    });
 });
 

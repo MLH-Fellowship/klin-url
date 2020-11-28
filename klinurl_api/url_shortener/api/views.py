@@ -6,7 +6,11 @@ from rest_framework.response import Response
 
 from url_shortener.models import Url
 from url_shortener.api.serializer import UrlSerializer
-from url_shortener.api.utils import create_shortened_url
+from url_shortener.api.utils import (
+                                      create_shortened_url,
+                                      get_or_create_clientid,
+                                      set_cookie
+                                      )
 
 
 class UrlShortenerAPIView(APIView):
@@ -34,6 +38,7 @@ class UrlShortenerAPIView(APIView):
         serializer = self.serializer_class(data=request.data)
         base_url = f"{ request.get_host() }/"
         scheme = f"{ request.scheme }://"
+        
        
         if serializer.is_valid():
             long_url = request.data["long_url"]
@@ -42,25 +47,29 @@ class UrlShortenerAPIView(APIView):
                 url = Url.objects.get(long_url=long_url)
 
                 return Response(
-                                    {
-                                        'success': True,
-                                        'data' : {
-                                                    "longUrl": long_url,
-                                                    "klinUrl": base_url + url.klin_url,
-                                                    "scheme": scheme,
-                                                    "isDuplicate":True
-                                                },
-                                        'message': "Your url is a duplicate"
-
-                                    }
-                                    )
+                                {
+                                    'success': True,
+                                    'data' : {
+                                                "longUrl": long_url,
+                                                "klinUrl": base_url + url.klin_url,
+                                                "scheme": scheme,
+                                                "isDuplicate":True
+                                            },
+                                    'message': "Your url is a duplicate"
+                                }
+                                )
+                
             else:
             
                 klin_url = create_shortened_url()
-
-                serializer.save(klin_url = klin_url)
-
-                return Response(
+                client_id = get_or_create_clientid(
+                                                    request, 
+                                                    klin_url
+                                                    )
+                serializer.save(
+                                klin_url=klin_url,
+                                client_id=client_id)
+                response = Response(
                                 {
                                     'success': True,
                                     'data' : {
@@ -70,9 +79,10 @@ class UrlShortenerAPIView(APIView):
                                                 "isDuplicate":False
                                             },
                                     'message': "Your url has been successfully shortened"
-
                                 }
                                 )
+                set_cookie(request, response, client_id)
+                return response
 
 
 def redirect_view(request, klin_url):

@@ -106,6 +106,7 @@ class UrlListAPIView(generics.ListAPIView):
 def redirect_view(request, slug):
     """
         Redirect to a given object from a given a short url.
+        now updated to work with slug
     """
     model = Url
     obj = get_object_or_404(model, slug=slug)

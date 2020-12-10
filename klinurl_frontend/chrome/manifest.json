@@ -1,6 +1,6 @@
 { 
     "manifest_version": 2, 
-    "name": "klinurl", 
+    "name": "klinurl for Chrome", 
     "description": "Shorten urls in wichever tab you are in.", 
     "version": "1", 
     "author": "Kyle Pulido, Harriet Akot, Nyior Clement", 
@@ -27,13 +27,22 @@
                                 "js": ["js/code/content.js"]
                             }
                         ],
+	
+	"icons": { 
+				"16": "icons/klinurl-16.png",
+				"32": "icons/klinurl-32.png",
+			      "48": "icons/klinurl-48.png" ,
+			      "128": "icons/klinurl-128.png"
+		},
+
 
     "browser_action": {   
-                        "default_icon": "icons/tab-icon.png",   
+                        "default_icon": "icons/klinurl-48.png",   
                         "default_title": "shorten your urls",
                         "default_popup": "html/popup.html"
                     },
     "web_accessible_resources": [
                         "icons/back.jpg"
                       ]
+	
 }

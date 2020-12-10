@@ -4,7 +4,7 @@ from rest_framework import  generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from url_shortener.models import Url
+from url_shortener.models import Url, Author
 from url_shortener.api.serializer import UrlSerializer
 from url_shortener.api.utils import (
                                       create_shortened_url,
@@ -36,7 +36,7 @@ class UrlShortenerAPIView(APIView):
             it's Python baby :)
         """
         serializer = self.serializer_class(data=request.data)
-        base_url = f"{ request.get_host() }/"
+        base_url = f"{request.get_host()}/"
         scheme = f"{ request.scheme }://"
         
        
@@ -51,7 +51,7 @@ class UrlShortenerAPIView(APIView):
                                     'success': True,
                                     'data' : {
                                                 "longUrl": long_url,
-                                                "klinUrl": base_url + url.klin_url,
+                                                "klinUrl": url.klin_url,
                                                 "scheme": scheme,
                                                 "isDuplicate":True
                                             },
@@ -61,20 +61,23 @@ class UrlShortenerAPIView(APIView):
                 
             else:
             
-                klin_url = create_shortened_url()
+                slug = create_shortened_url()
+                klin_url = base_url + slug 
                 client_id = get_or_create_clientid(
                                                     request, 
                                                     klin_url
                                                     )
                 serializer.save(
+                                slug=slug,
                                 klin_url=klin_url,
-                                client_id=client_id)
+                                created_by=client_id
+                                )
                 response = Response(
                                 {
                                     'success': True,
                                     'data' : {
                                                 "longUrl": long_url,
-                                                "klinUrl": base_url + serializer.data["klin_url"],
+                                                "klinUrl": klin_url,
                                                 "scheme": scheme,
                                                 "isDuplicate":False
                                             },
@@ -85,10 +88,25 @@ class UrlShortenerAPIView(APIView):
                 return response
 
 
-def redirect_view(request, klin_url):
+class UrlListAPIView(generics.ListAPIView):
     """
-    Redirect to a given object from a given a short url.
+        This returns all the urls shortened by a user.
+    """
+    serializer_class = UrlSerializer
+
+    def get_queryset(self):
+        client_id = self.request.COOKIES['client_id']
+        author = Author.objects.get(client_id=client_id)
+
+        return Url.objects.filter(created_by=author).order_by("-date_created")
+
+
+
+
+def redirect_view(request, slug):
+    """
+        Redirect to a given object from a given a short url.
     """
     model = Url
-    obj = get_object_or_404(model, klin_url=klin_url)
+    obj = get_object_or_404(model, slug=slug)
     return redirect(obj)

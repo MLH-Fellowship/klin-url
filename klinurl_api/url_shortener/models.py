@@ -17,18 +17,26 @@ class Author(models.Model):
                                     
 
 class Url(models.Model):
-    klin_url = models.CharField(
-                                max_length=30, 
-                                unique=True
-                                ),
-    long_url = models.TextField(unique=True),
     created_by = models.ForeignKey(
                                     Author, 
                                     on_delete=models.SET_NULL,
                                     related_name="urls",
                                     null=True
                                     )
-    
+    slug = models.SlugField(max_length=6)
+    klin_url = models.CharField(
+                                max_length=30, 
+                                unique=True
+                                )
+    long_url = models.URLField(
+                                max_length=500,
+                                unique=True
+                                )
+    date_created = models.DateTimeField(
+                                        auto_now_add=True, 
+                                        null=True
+                                        )
+                                
     def __str__(self):
         return self.klin_url
     

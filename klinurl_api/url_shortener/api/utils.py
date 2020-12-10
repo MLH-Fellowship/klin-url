@@ -5,18 +5,26 @@ from url_shortener.models import Author
 ALPHANUMERIC_CHARS = string.ascii_lowercase + string.digits + string.ascii_uppercase
 STRING_LENGTH = 5
 
+
 #function that generates a random string
-def create_shortened_url(chars=ALPHANUMERIC_CHARS, length=STRING_LENGTH):
+def create_shortened_url(
+                            chars=ALPHANUMERIC_CHARS, 
+                            length=STRING_LENGTH
+                            ):
     return "".join(random.choice(chars) for _ in range(length))
+    
+
 
 request_has_cookie = False
 def get_or_create_clientid(request, random_chars):  
     if 'client_id' in request.COOKIES:
         request_has_cookie = True
         client_id = request.COOKIES['client_id']
-        return Author.objects.get(client_id=client_id)
+        author, _ = Author.objects.get_or_create(client_id=client_id)
+        return author
     else:
         return Author.create(random_chars)
+
 
 def set_cookie(request, response, client_id):
     if request_has_cookie:

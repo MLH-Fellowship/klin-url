@@ -3,7 +3,7 @@ from url_shortener.models import Url
 
 
 class UrlSerializer(serializers.Serializer):
-    long_url = serializers.CharField()
+    long_url = serializers.URLField(max_length=500)
     klin_url = serializers.CharField(required=False)
 
     class Meta:

@@ -23,7 +23,7 @@ class Url(models.Model):
                                     related_name="urls",
                                     null=True
                                     )
-    slug = models.SlugField(max_length=5)
+    slug = models.SlugField(max_length=6)
     klin_url = models.CharField(
                                 max_length=30, 
                                 unique=True

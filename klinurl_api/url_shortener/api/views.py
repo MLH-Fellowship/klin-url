@@ -65,7 +65,7 @@ class UrlShortenerAPIView(APIView):
                 klin_url = base_url + slug 
                 client_id = get_or_create_clientid(
                                                     request, 
-                                                    klin_url
+                                                    slug
                                                     )
                 serializer.save(
                                 slug=slug,
@@ -88,19 +88,42 @@ class UrlShortenerAPIView(APIView):
                 return response
 
 
-class UrlListAPIView(generics.ListAPIView):
+class UrlListAPIView(APIView):
     """
         This returns all the urls shortened by a user.
     """
     serializer_class = UrlSerializer
+    
+    def get(self, request, format=None, *args, **kwargs):
+        serializer_context = {"request":request}
 
-    def get_queryset(self):
-        client_id = self.request.COOKIES['client_id']
-        author = Author.objects.get(client_id=client_id)
+        if 'client_id' in request.COOKIES:
+            client_id = self.request.COOKIES['client_id']
+            author = Author.objects.get(client_id=client_id)
+            urls = Url.objects.filter(created_by=author).order_by("-date_created")
+        
+            serializer = self.serializer_class(
+                                                urls, 
+                                                many=True, 
+                                                context=serializer_context
+                                                ).data
 
-        return Url.objects.filter(created_by=author).order_by("-date_created")
+            return Response(
+                                {
+                                    'success': True,
+                                    'urls': serializer,
+                                    'has_urls': True
+                                }
+                                )
 
+        else:
 
+            return Response(
+                                {
+                                    'success': True,
+                                    'has_urls': False
+                                }
+                                )
 
 
 def redirect_view(request, slug):

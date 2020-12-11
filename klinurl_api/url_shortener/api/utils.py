@@ -15,10 +15,8 @@ def create_shortened_url(
     
 
 
-request_has_cookie = False
 def get_or_create_clientid(request, random_chars):  
     if 'client_id' in request.COOKIES:
-        request_has_cookie = True
         client_id = request.COOKIES['client_id']
         author, _ = Author.objects.get_or_create(client_id=client_id)
         return author
@@ -27,7 +25,7 @@ def get_or_create_clientid(request, random_chars):
 
 
 def set_cookie(request, response, client_id):
-    if request_has_cookie:
+    if 'client_id' in request.COOKIES:
        print(request.COOKIES['client_id'])
     else:
         response.set_cookie('client_id', client_id, max_age=31556952)

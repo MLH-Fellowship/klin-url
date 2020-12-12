@@ -21,7 +21,7 @@ def get_or_create_clientid(request, random_chars):
         author, _ = Author.objects.get_or_create(client_id=client_id)
         return author
     else:
-        return Author.create(random_chars)
+        return Author.objects.create(client_id=random_chars)
 
 
 def set_cookie(request, response, client_id):

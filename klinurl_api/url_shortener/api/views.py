@@ -101,6 +101,7 @@ class UrlListAPIView(APIView):
             client_id = self.request.COOKIES['client_id']
             author, _ = Author.objects.get_or_create(client_id=client_id)
             urls = Url.objects.filter(created_by=author).order_by("-date_created")
+            scheme = f"{ request.scheme }://"
         
             serializer = self.serializer_class(
                                                 urls, 
@@ -113,6 +114,7 @@ class UrlListAPIView(APIView):
                                     {
                                         'success': True,
                                         'urls': serializer,
+                                        'scheme': scheme,
                                         'has_urls': True
                                     }
                                     )

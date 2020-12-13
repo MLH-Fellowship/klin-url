@@ -1,8 +1,8 @@
 { 
     "manifest_version": 2, 
     "name": "klinurl for Chrome", 
-    "description": "Shorten urls in wichever tab you are in.", 
-    "version": "1", 
+    "description": "A more convenient way of creating clean and short urls.", 
+    "version": "1.0", 
     "author": "Kyle Pulido, Harriet Akot, Nyior Clement", 
 
     "permissions": [

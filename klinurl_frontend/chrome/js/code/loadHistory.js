@@ -33,7 +33,7 @@ const writeDataToDom = () => {
 
                     let originalUrl = encodeURI(element.long_url)
                     let newUrl = encodeURI(element.klin_url)
-                    let scheme = encodeURI(element.scheme)
+                    let scheme = encodeURI(data.scheme)
                     let newurlHref = scheme.concat(newUrl);
                     let trimmedUrl = originalUrl
 

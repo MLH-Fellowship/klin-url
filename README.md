@@ -6,7 +6,7 @@
 	<i>A google chrome addon for shortening urls in a more convenient way</i>
 </p>
 
-<img align="center" width="900" height="300" src="images/klinurl-cover.PNG">
+<img align="center" width="900" height="400" src="https://github.com/MLH-Fellowship/klin-url/blob/feature/save-url/images/klinnurl-cover.png">
 
 
 ## Project Descripttion

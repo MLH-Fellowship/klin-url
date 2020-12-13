@@ -99,7 +99,7 @@ class UrlListAPIView(APIView):
 
         if 'client_id' in request.COOKIES:
             client_id = self.request.COOKIES['client_id']
-            author = Author.objects.get(client_id=client_id)
+            author, _ = Author.objects.get_or_create(client_id=client_id)
             urls = Url.objects.filter(created_by=author).order_by("-date_created")
         
             serializer = self.serializer_class(
@@ -108,11 +108,19 @@ class UrlListAPIView(APIView):
                                                 context=serializer_context
                                                 ).data
 
-            return Response(
+            if serializer:
+                return Response(
+                                    {
+                                        'success': True,
+                                        'urls': serializer,
+                                        'has_urls': True
+                                    }
+                                    )
+            else:
+                return Response(
                                 {
                                     'success': True,
-                                    'urls': serializer,
-                                    'has_urls': True
+                                    'has_urls': False
                                 }
                                 )
 

@@ -13,7 +13,7 @@
                         "storage"
                     ],
 
-        "background": [
+    "background": [
                         {
                             "scripts": ["js/code/background.js"],
                             "persistent": false

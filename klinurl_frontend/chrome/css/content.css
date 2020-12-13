@@ -33,18 +33,19 @@
 	text-align: center;
 }
 
-#klinurl-table-header{
-    letter-spacing: 1px;
-    background-color: #1ca9c9;
-    color: white !important;
-	font-weight: bold;
-	font-size: 1.6rem;
-}
-
 #klinurl-copy{
 	font-size: 1.6rem;	
     color: #1ca9c9;
     visibility: hidden;
+}
+
+#klinurl-back{
+	font-size: 1.6rem;	
+    color: #1ca9c9;
+}
+
+#klinurl-save{
+    color: #1ca9c9;
 }
 
 #longurl{
@@ -66,6 +67,18 @@
     letter-spacing: 2px;
     font-weight: bold;
     color: #ce8b57;
+}
+
+.klinurl-table-header{
+    letter-spacing: 1px;
+    background-color: #1ca9c9;
+    color: white !important;
+	font-weight: bold;
+	font-size: 1.6rem;
+}
+
+a:hover{
+    text-decoration: none;
 }
 
 .klinurl-animate {

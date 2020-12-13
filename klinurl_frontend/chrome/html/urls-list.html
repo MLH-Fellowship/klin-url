@@ -15,10 +15,10 @@
         <link 
             rel="stylesheet" 
             href="../css/content.css"
-        >
+        > 
+        
+        <script src="../js/code/loadHistory.js"></script> 
 
-        <script src="../js/code/content.js"></script> 
-        <script src="../js/code/background.js"></script> 
         <title>KlinUrl</title> 
     </head>
 
@@ -34,13 +34,8 @@
                         KlinUrl
                     </h1>
                 </a>
-                <h5 
-                    id="klinurl-h5"
-                >
-                    Create Clean and short Urls
-                </h5>
             </div>
-
+            
             <div class="col-2 text-right mb-2">
                 <a 
                     href="urls-list.html"
@@ -54,45 +49,7 @@
                         >
                         </i>
                     </h1>
-                </a>
-            </div>
-        </div>
-
-        <div class="row mt-5 pt-5 text-left">
-            <div class="col-12">
-                <div>
-                    <label 
-                        for="klinurl-input"
-                        class="text-muted"
-                    >
-                        Your tab's url has been automatically copied
-                    </label>
-                    <input 
-                        type="text" 
-                        class="text-muted"
-                        name="klinurl-input"
-                        placeholder="paste longurl" 
-                        id="longurl" 
-                    />
-                            
-                    <div 
-                        id="error-section"
-                        class="text-center text-white"
-                    >
-                    </div>
-        
-                    <div>
-                            
-                        <button
-                            class="btn mt-3 shadow"
-                            type="submit"
-                            id="klinurl-button"
-                        >
-                            shorten url
-                        </button>
-                        <br/>
-                    </div>
-                </div>
+                </a> 
             </div>
         </div>
 
@@ -103,8 +60,8 @@
                         <tr 
                             class="text-left klinurl-table-header"
                         >
-                            <th>shortened url</th>
-                            <th>original Url</th>
+                            <th>all shortened urls</th>
+                            <th>original Urls</th>
                         </tr>
                     </thead>
 
@@ -118,14 +75,6 @@
                                         class="text-muted"
                                     >
                                     </a>
-                                    <i
-                                        class="btn fa fa-clone"
-                                        aria-hidden="true"
-                                        id="klinurl-copy"
-                                    >
-                                        <span id="tooltiptext">    
-                                        </span>
-                                    </i>
                                 </small>
                             </td>
                             <td>
@@ -142,6 +91,28 @@
                               
                     </tbody>
                 </table>
+            </div>
+
+            <div 
+                class="col-12 text-center p-2"
+                id="no-saved-urls"
+            >
+
+
+            </div>
+        </div>
+
+        <div class="row mt-2 pt-2">
+            <div class="col-12 text-center">
+                <a href="popup.html">
+                    <i 
+                        class="fa fa-arrow-left" 
+                        aria-hidden="true"
+                        id="klinurl-back"
+                    >
+                        back to home
+                    </i>
+                </a>
             </div>
         </div>
     </div>

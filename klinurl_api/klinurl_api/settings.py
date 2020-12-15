@@ -32,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 ALLOWED_HOSTS = [
                     'localhost', 
-                    'klinurl.me'
+                    'www.klinurl.me'
                 ]
 
 
@@ -156,7 +156,7 @@ MEDIA_URL  = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CORS_ALLOWED_ORIGINS = [
-    "http://www.klinurl.me",
+    "www.klinurl.me",
     "http://localhost:8000",
 ]
 

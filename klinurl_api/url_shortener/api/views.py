@@ -85,6 +85,7 @@ class UrlShortenerAPIView(APIView):
                                 }
                                 )
                 set_cookie(request, response, client_id)
+                print(request.COOKIES)
                 return response
 
 
@@ -98,6 +99,7 @@ class UrlListAPIView(APIView):
         serializer_context = {"request":request}
 
         if 'client_id' in request.COOKIES:
+            print("cookie found")
             client_id = self.request.COOKIES['client_id']
             author, _ = Author.objects.get_or_create(client_id=client_id)
             urls = Url.objects.filter(created_by=author).order_by("-date_created")
@@ -127,7 +129,7 @@ class UrlListAPIView(APIView):
                                 )
 
         else:
-
+            print("cookie not found")
             return Response(
                                 {
                                     'success': True,

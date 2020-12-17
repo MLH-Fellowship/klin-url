@@ -30,10 +30,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-ALLOWED_HOSTS = [
-                    'localhost', 
-                    'www.klinurl.me'
-                ]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -156,4 +153,5 @@ MEDIA_URL  = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 CORS_ALLOW_ALL_ORIGINS=True
+
 

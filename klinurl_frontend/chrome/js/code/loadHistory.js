@@ -1,7 +1,7 @@
 
 
 async function loadData(data) {
-    const url = "http://klinurl.me/api/v1/urls/list";
+    const url = "http://www.klinurl.me/api/v1/urls/list";
 
     const response = await fetch(
         url, 

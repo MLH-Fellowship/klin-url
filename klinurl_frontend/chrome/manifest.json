@@ -6,9 +6,8 @@
     "author": "Kyle Pulido, Harriet Akot, Nyior Clement", 
 
     "permissions": [
-                        "activeTab", 
-                        "clipboardWrite", 
-                        "clipboardRead"
+                        "activeTab",
+                        "http://www.klinurl.me/"
                     ],
 
     "background": [
@@ -22,8 +21,8 @@
 	"icons": { 
 				"16": "icons/klinurl-16.png",
 				"32": "icons/klinurl-32.png",
-			      "48": "icons/klinurl-48.png" ,
-			      "128": "icons/klinurl-128.png"
+			    "48": "icons/klinurl-48.png" ,
+			    "128": "icons/klinurl-128.png"
 		},
 
 

@@ -1,13 +1,12 @@
 
-
 async function postData(data) {
-    const url = "http://klinurl.me/api/v1/shorten";
+    const url = "http://www.klinurl.me/api/v1/shorten";
 
     const response = await fetch(
         url, 
         {
             method: 'POST',
-            credentials: 'include',
+            credentials:"include",
             headers: {
                 'Content-Type': 'application/json'
             },

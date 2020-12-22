@@ -15,6 +15,9 @@ This google chrome add on helps people especially developers shorten urls easily
 If you like this repo, click the ⭐
 
 ## Frontend Project Setup(klinurl_frontend folder): 
+* clone project to your local machine
+* navigate to the klinurl_frontend directory
+
 - To install project dependencies(jest) run:
 ```
 npm install
@@ -25,7 +28,6 @@ npm install
 
 ## Backend Project Setup(klinurl_api folder): 
 
-* clone project to your local machine
 * navigate to the project's root directory
 * Then create a virtual environemnt and install all the project dependencies in the pipfile using the command :
 
@@ -47,7 +49,7 @@ Upon completion run the first command again
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Website
-coming soon..
+[get the it here](https://chrome.google.com/webstore/detail/klinurl-for-chrome/jbeoijelmjlhahfdlccjlemcnfegiolc?hl=en&authuser=0)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
